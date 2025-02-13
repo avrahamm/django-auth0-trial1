@@ -7,6 +7,7 @@ __pycache__/
 dist/
 build/
 productionfiles/
+.ebextensions/django.config
 eggs/
 parts/
 var/
