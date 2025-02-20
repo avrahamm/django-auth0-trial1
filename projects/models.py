@@ -9,6 +9,7 @@ class Project(models.Model):
     founder = models.CharField(max_length=40, null=True, blank=True)
     created_at = models.DateField(null=True, blank=True)
     image = models.CharField(max_length=100)
+    slug = models.SlugField(default="", null=False)
 
 
     def __str__(self):
