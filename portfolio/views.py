@@ -1,3 +1,6 @@
+# Copied from Auth0 Django tutorial
+# https://auth0.com/docs/quickstart/webapp/django/01-login
+
 import json
 from authlib.integrations.django_client import OAuth
 from django.conf import settings

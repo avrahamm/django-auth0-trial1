@@ -20,3 +20,4 @@ var/
 *.db
 *.sqlite
 *.pdb
+*.zip

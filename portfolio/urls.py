@@ -16,16 +16,18 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from django.contrib.auth.decorators import login_required
+from .auth_decorators import requires_auth
 
 from . import views
 
 urlpatterns = [
+    # Auth0 authentication routes
     path("", views.index, name="index"),
     path("login", views.login, name="login"),
     path("logout", views.logout, name="logout"),
     path("callback", views.callback, name="callback"),
 
+    # Projects content routes
     path('admin/', admin.site.urls),
-    path('projects/', include('projects.urls')),
+    path('projects/', requires_auth(include('projects.urls'))),
 ]
