@@ -21,9 +21,18 @@ https://auth0.com/docs/quickstart/webapp/django/01-login
 There is another projects app originally comes from RealPython </br>
 https://realpython.com/courses/django-portfolio-project/
 basic project codem with addition inspired by <br/>
-https://www.w3schools.com/django/index.php tutorial.
+https://www.w3schools.com/django/index.php tutorial.</br>
 There is a simple projects list.
 
-Currently, I can't 
+To run: </br>
+git clone https://github.com/avrahamm/django-auth0-trial1.git </br>
+cd https://github.com/avrahamm/django-auth0-trial1.git </br>
+pip install -r requirements.txt
+touch .env </br>
+#fill with values </br>
+python3 manage.py runserver 3000 </br>
+
+Currently, I can't arrive to /projects route </br>
+after Auth0 logged in.
 
 
