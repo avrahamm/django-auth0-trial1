@@ -68,6 +68,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'projects/templates'),
+            os.path.join(BASE_DIR, 'portfolio/templates')
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -169,3 +170,17 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Load Auth0 application settings into memory
+AUTH0_DOMAIN = os.environ.get("AUTH0_DOMAIN")
+AUTH0_CLIENT_ID = os.environ.get("AUTH0_CLIENT_ID")
+AUTH0_CLIENT_SECRET = os.environ.get("AUTH0_CLIENT_SECRET")
+AUTH0_CALLBACK_URL = os.environ.get('AUTH0_CALLBACK_URL', 'http://localhost:3000/callback')
+
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/projects'
+SOCIAL_AUTH_LOGIN_URL = '/projects'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/projects'
+
+print(f"AUTH0_CLIENT_SECRET = {AUTH0_CLIENT_SECRET}")
+print(f"BASE_DIR = {BASE_DIR}")
