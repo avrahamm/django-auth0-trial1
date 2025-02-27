@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'portfolio.auth_middleware.Auth0Middleware',  # Add the Auth0 middleware here
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -181,6 +182,44 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/projects'
 SOCIAL_AUTH_LOGIN_URL = '/projects'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/projects'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',  # Make sure this is DEBUG
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'loggers': {
+        '': {  # Root logger
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'portfolio': {  # Your app
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
 
 # print(f"AUTH0_CLIENT_SECRET = {AUTH0_CLIENT_SECRET}")
 # print(f"BASE_DIR = {BASE_DIR}")
