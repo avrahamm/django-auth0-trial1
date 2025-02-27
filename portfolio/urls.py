@@ -16,7 +16,6 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from .auth_decorators import requires_auth
 
 from . import views
 
@@ -29,5 +28,5 @@ urlpatterns = [
 
     # Projects content routes
     path('admin/', admin.site.urls),
-    path('projects/', requires_auth(include('projects.urls'))),
+    path('projects/', include('projects.urls')),
 ]

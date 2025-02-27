@@ -4,7 +4,7 @@ from projects.models import Project
 
 # Create your views here.
 def all_projects(request):
-    print(f"cur session user =  {request.session.get("user")}")
+    # print(f"all_projects cur session user =  {request.session.get("user")}")
     # query the db to return all project objects
     projects = Project.objects.all()
     return render(request, 'projects/all_projects.html',
